@@ -24,6 +24,7 @@ plugins:
 
 provider:
   name: aws
+  stage: dev
   runtime: nodejs10.x
   region: eu-central-1
   environment:
