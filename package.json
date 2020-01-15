@@ -18,7 +18,6 @@
     "serverless-offline": "^5.3.3"
   },
   "dependencies": {
-    "serverless-dotenv-plugin": "^2.1.1",
     "stripe": "^7.14.0",
     "uuid": "^3.3.3"
   }

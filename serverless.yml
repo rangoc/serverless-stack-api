@@ -21,8 +21,6 @@ custom:
 plugins:
   - serverless-bundle # Package our functions with Webpack
   - serverless-offline
-  - serverless-dotenv-plugin
-
 provider:
   name: aws
   stage: dev
@@ -30,7 +28,6 @@ provider:
   region: eu-central-1
   environment:
     tableName: ${self:custom.tableName}
-    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
   # iamRoleStatements' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
   iamRoleStatements:
