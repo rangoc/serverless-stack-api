@@ -18,6 +18,7 @@ export async function main(event, context) {
       description,
       currency: "usd"
     });
+    console.log("successfully invoked billing");
     return success({ status: true });
   } catch (e) {
     return failure({ message: e.message });
