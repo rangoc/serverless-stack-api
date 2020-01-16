@@ -1,4 +1,4 @@
-import stripePackage from "stripe";
+import Stripe from "stripe";
 import { calculateCost } from "./libs/billing-lib";
 import { success, failure } from "./libs/response-lib";
 const aws = require('aws-sdk');
@@ -10,10 +10,10 @@ export async function main(event, context) {
   const amount = calculateCost(storage);
   const description = "Scratch charge";
 
-  const stripeSecretKey = ssm.getParameter(
+  const stripeSecretKey = await ssm.getParameter(
     {Name: 'stripeSecretKey', WithDecryption: true}
   ).promise();
-  const stripe = stripePackage(stripeSecretKey.Parameter.Value);
+  const stripe = Stripe(stripeSecretKey.Parameter.Value);
 
   try {
     await stripe.charges.create({
